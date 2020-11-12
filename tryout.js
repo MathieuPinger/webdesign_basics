@@ -90,7 +90,7 @@ todos = [
 {
 	id: 1,
 	text: 'laundry',
-	done: false
+	done: true
 },
 {
 	id: 2,
@@ -112,3 +112,92 @@ console.log(todoJSON);
 for (let i = 0; i < 10; i++) {
 	console.log(i);
 }
+
+// while loop
+let i = 10;
+while(i < 10) {
+	console.log(`while loop: ${i}`);
+	i++; // increment i
+}
+
+// loop through array: way 1
+for(let i = 0; i < todos.length; i++) {
+	console.log(todos[i].text)
+}
+
+// way 2: like "for i in array" in Python
+for(let todo of todos) {
+	console.log(todo.text)
+}
+
+// way 3: high order array methods
+// recommended!
+// method 1: forEach with function call
+todos.forEach(function(todo) { // anonymous function
+	console.log(todo.text);
+});
+
+// method 2: map: returns an array
+const todoText = todos.map(function(todo) { // anonymous function
+	return todo.text;
+});
+console.log(todoText);
+
+// method 3: filter: returns array elements on condition
+// this returns the whole array element but filters on properties
+const todoTasks = todos.filter(function(todo) { // anonymous function
+	return todo.done == true;
+});
+console.log(todoTasks)
+
+// chain filter and map: get only the texts
+const todoTasksTexts = todos.filter(function(todo) { // anonymous function
+	return todo.done == true;
+}).map(function(todo) {
+	return todo.text;
+});
+console.log(todoTasksTexts)
+
+// if
+const b = '10'; 
+
+// == matches only number, === matches data type
+if(b == 10) { // works
+	console.log('x is 10');
+};
+
+if(b === 10) { // doesn't work
+	console.log('x is 10');
+} else {
+	console.log('x is not 10')
+};
+
+// logical AND = &&, OR = ||
+
+// Ternary operator: ? (then) with : (else)
+// like ifelse in R
+let color = 'red';
+const isRed = color === 'red' ? 'yes' : 'no';
+console.log(`Is the color red? ${isRed}`);
+
+// switch-case: similar to if, better than nested if (readable+faster), but only equality check
+switch(color) {
+	case 'red':
+		console.log('color is red');
+		break;
+	case 'blue':
+		console.log('color is blue');
+		break;
+	default:
+		console.log('color is neither blue nor red');
+		break;
+}
+
+// can you nest ternaries? YES
+let color2 = 'blue';
+const isBlue = color === 'red' 
+	? 'yes'
+	: color === 'blue'
+	? 'blue'
+	: 'neither';
+console.log(color2)
