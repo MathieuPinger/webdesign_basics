@@ -19,8 +19,20 @@ function onSubmit(e) {
         msg.innerHTML = 'Please enter all fields'; // enters text in empty msg field
         
         // remove message after 3sec
-        setIntervalTimeout(() => msg.remove(), 3000)
+        setTimeout(() => msg.remove(), 3000)
     } else {
-        console.log('success');
+        // create list item
+        const li = document.createElement('li');
+        li.appendChild(
+            document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+
+        userList.appendChild(li);
+
+        // Clear fields
+        nameInput.value = '';
+        emailInput.value = '';
     }
 }
+
+// these values are not saved
+// use fetch API (Ajax), PHP etc for database interaction
