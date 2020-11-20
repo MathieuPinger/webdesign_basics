@@ -110,3 +110,12 @@ console.log(max(9, ...numbers, 1)); // max takes values as input
 // same with strings
 let words = ["I", "am"];
 console.log(["Here", ...words, "sitting"]);
+
+// Functions can be written with arrays or objects in mind:
+function useless([a,b,c,d]) {
+    console.log(a+b+c+d);
+}
+
+let {name} = {name: "Faraji", age: 23};
+console.log(name);
+// → Faraji
