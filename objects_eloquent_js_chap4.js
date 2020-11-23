@@ -117,5 +117,4 @@ function useless([a,b,c,d]) {
 }
 
 let {name} = {name: "Faraji", age: 23};
-console.log(name);
-// → Faraji
+console.log(name); // → Faraji
